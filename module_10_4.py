@@ -6,14 +6,14 @@ from queue import Queue
 
 class Table:
     def __init__(self, number: int):
-        self.number = number  # номер стола
-        self.guest = None  # гость, который сидит за этим столом
+        self.number = number 
+        self.guest = None 
 
 
 class Guest(Thread):
     def __init__(self, name: str):
         super().__init__()
-        self.name = name  # имя гостя
+        self.name = name 
 
     def run(self):
         sleep(randint(3, 10))
@@ -21,8 +21,8 @@ class Guest(Thread):
 
 class Cafe:
     def __init__(self, *tables: Table):
-        self.tables = tables  # столы в этом кафе
-        self.queue = Queue()  # очередь
+        self.tables = tables 
+        self.queue = Queue()  
 
     def is_vacant(self):
         return not any(t.guest for t in self.tables)
